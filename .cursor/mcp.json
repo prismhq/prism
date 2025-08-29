@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "prism": {
+      "command": "npx",
+      "args": ["-y", "@prismai/prism-mcp-server"],
+      "env": {
+        "PRISM_API_KEY": "prism_483609e2",
+        "PRISM_API_URL": "https://www.prismui.co/api/"
+      }
+    }
+  }
+}
