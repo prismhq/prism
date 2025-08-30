@@ -6,7 +6,7 @@
       "dependencies": {
         "@instantdb/core": "*",
         "@instantdb/react": "*",
-        "@prismai/prism-mcp-server": "0.0.7",
+        "@prismai/prism-mcp-server": "0.0.10",
         "@tailwindcss/vite": "^4.0.6",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
@@ -162,7 +162,7 @@
 
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
-    "@prismai/prism-mcp-server": ["@prismai/prism-mcp-server@0.0.7", "", { "dependencies": { "@modelcontextprotocol/sdk": "^1.2.0", "zod": "^3.23.8" }, "bin": { "prism-mcp-server": "dist/index.js" } }, "sha512-IibPtXsHKrjO5uyIUrmhj2k7bfSzSz2yD66ZWUbCpz+1ddYDAWvFpkQIZZF0cIhZA3rzsRh7Nb7n9iCuJ4OWgQ=="],
+    "@prismai/prism-mcp-server": ["@prismai/prism-mcp-server@0.0.10", "", { "dependencies": { "@modelcontextprotocol/sdk": "^1.2.0", "zod": "^3.23.8" }, "bin": { "prism-mcp-server": "dist/index.js" } }, "sha512-FHCpXBVnwYT1WVEKMU5G1vkEh3OObgBiPcx6LRKFyKoN0clvJf2+ce3wrpoq1L2H3svIDFKzA67rzndXY+PyqQ=="],
 
     "@rollup/rollup-android-arm-eabi": ["@rollup/rollup-android-arm-eabi@4.34.6", "", { "os": "android", "cpu": "arm" }, "sha512-+GcCXtOQoWuC7hhX1P00LqjjIiS/iOouHXhMdiDSnq/1DGTox4SpUvO52Xm+div6+106r+TcvOeo/cxvyEyTgg=="],
 
