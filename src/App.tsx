@@ -1,110 +1,95 @@
-import { init, id } from "@instantdb/react";
-import schema from "../instant.schema.ts";
-
-const APP_ID = import.meta.env.VITE_INSTANT_APP_ID!;
-
-const db = init({ appId: APP_ID, schema });
+import { useState, useEffect } from "react";
+import { Button } from "./components/ui";
+import { PasswordManager } from "./components/PasswordManager";
+import { DesignSystemShowcase } from "./components/DesignSystemShowcase";
 
 function App() {
-  const { isLoading, data, error } = db.useQuery({ todos: {} });
-  if (isLoading) return null;
-  if (APP_ID === "REPLACE_ME") return <MissingAppScreen />;
-  if (error) return <ErrorScreen error={error} />;
+  const [currentView, setCurrentView] = useState<
+    "password-manager" | "design-system"
+  >("password-manager");
+  const [isDark, setIsDark] = useState(false);
+
+  // Check for system preference and localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+
+    if (newTheme) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   return (
-    <div className="p-4 space-y-4">
-      <h2 className="space-x-2 flex">
-        <img src="/instant.svg" alt="Instant Logo" className="w-5" />
-        <span>instant-repro</span>
-      </h2>
-      <div className="space-y-4">
-        <p>You've got data!</p>
-        <pre className="text-sm bg-orange-100 max-w-xl p-3 max-h-96 overflow-y-scroll">
-          {JSON.stringify(data, null, 2)}
-        </pre>
-        <div className="space-x-4">
-          <button
-            className="border border-blue-500 p-2 cursor-pointer"
-            onClick={() => {
-              db.transact(
-                db.tx.todos[id()].update({ title: "Hello", body: "World" })
-              );
-            }}
-          >
-            Add a todo!
-          </button>
-          <button
-            className="border border-red-500 p-2 cursor-pointer"
-            onClick={() => {
-              db.transact(
-                data.todos.map((todo) => db.tx.todos[todo.id].delete())
-              );
-            }}
-          >
-            Delete all todos
-          </button>
+    <div className="min-h-screen bg-background">
+      {/* Navigation Header */}
+      <header className="border-b bg-card">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <h1 className="text-2xl font-bold">🔐 Prism App</h1>
+              <div className="flex gap-2">
+                <Button
+                  variant={
+                    currentView === "password-manager" ? "default" : "outline"
+                  }
+                  size="sm"
+                  onClick={() => setCurrentView("password-manager")}
+                >
+                  Password Manager
+                </Button>
+                <Button
+                  variant={
+                    currentView === "design-system" ? "default" : "outline"
+                  }
+                  size="sm"
+                  onClick={() => setCurrentView("design-system")}
+                >
+                  Design System
+                </Button>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={toggleTheme}
+                className="px-3"
+              >
+                {isDark ? "☀️ Light" : "🌙 Dark"}
+              </Button>
+              <div className="text-sm text-muted-foreground">
+                Built with Prism Components & Design Tokens
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          Feel free to change this code base. Once you have a repro, or if you
-          have questions, ping us on{" "}
-          <a
-            href="https://discord.com/invite/VU53p7uQcE"
-            className="text-blue-500 underline"
-          >
-            Discord
-          </a>
-          .
-        </div>
-      </div>
-    </div>
-  );
-}
+      </header>
 
-function ErrorScreen({ error }: { error: { message: string } }) {
-  return (
-    <div className="p-4 space-y-4">
-      <h2 className="text-xl font-bold">🤕 Uh oh, we've got an error</h2>
-      <p>Here's the message:</p>
-      <pre className="text-sm bg-orange-100 max-w-xl p-3 max-h-96 overflow-y-scroll">
-        {JSON.stringify(error, null, 2)}
-      </pre>
-      <p>
-        If this isn't expected and we can help, share the details with us on{" "}
-        <a
-          href="https://discord.com/invite/VU53p7uQcE"
-          className="text-blue-500 underline"
-        >
-          Discord
-        </a>
-        .
-      </p>
-    </div>
-  );
-}
-
-function MissingAppScreen() {
-  return (
-    <div className="p-4 space-y-4 max-w-xl">
-      <h1 className="text-xl font-bold inline-flex space-x-2">
-        <img src="/instant.svg" alt="Instant Logo" className="w-5" />
-        <span>Welcome to Instant's Repro App!</span>
-      </h1>
-      <p>
-        To get started, head on over to your{" "}
-        <a
-          href="https://www.instantdb.com/dash"
-          target="_blank"
-          className="text-blue-500 underline"
-        >
-          Dashboard
-        </a>{" "}
-        and copy over your App ID.
-      </p>
-      <p>
-        Set <code className="font-bold">`VITE_INSTANT_APP_ID`</code> in your
-        <code className="font-bold">`.env`</code> file and refresh this page.
-        Once done, you'll be ready to test!
-      </p>
+      {/* Main Content */}
+      <main>
+        {currentView === "password-manager" ? (
+          <PasswordManager />
+        ) : (
+          <DesignSystemShowcase />
+        )}
+      </main>
     </div>
   );
 }

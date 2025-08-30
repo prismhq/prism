@@ -1,0 +1,158 @@
+:root {
+  /* Brand Colors */
+  --color-brand-50: hsl(212, 85%, 95%);
+  --color-brand-100: hsl(212, 85%, 86%);
+  --color-brand-200: hsl(212, 85%, 77%);
+  --color-brand-300: hsl(212, 85%, 68%);
+  --color-brand-400: hsl(212, 85%, 59%);
+  --color-brand-500: hsl(212, 85%, 50%);
+  --color-brand-600: hsl(212, 85%, 41%);
+  --color-brand-700: hsl(212, 85%, 32%);
+  --color-brand-800: hsl(212, 85%, 23%);
+  --color-brand-900: hsl(212, 85%, 14%);
+  --color-brand-950: hsl(212, 85%, 5%);
+
+  /* Neutral Colors */
+  --color-neutral-50: hsl(0, 0%, 95%);
+  --color-neutral-100: hsl(0, 0%, 86%);
+  --color-neutral-200: hsl(0, 0%, 77%);
+  --color-neutral-300: hsl(0, 0%, 68%);
+  --color-neutral-400: hsl(0, 0%, 59%);
+  --color-neutral-500: hsl(0, 0%, 50%);
+  --color-neutral-600: hsl(0, 0%, 41%);
+  --color-neutral-700: hsl(0, 0%, 32%);
+  --color-neutral-800: hsl(0, 0%, 23%);
+  --color-neutral-900: hsl(0, 0%, 14%);
+  --color-neutral-950: hsl(0, 0%, 5%);
+
+  /* Accent 1 Colors */
+  --color-accent-1-100: hsl(262, 50%, 85%);
+  --color-accent-1-500: hsl(262, 50%, 50%);
+  --color-accent-1-900: hsl(262, 50%, 15%);
+
+  /* Accent 2 Colors */
+  --color-accent-2-100: hsl(38, 50%, 85%);
+  --color-accent-2-500: hsl(38, 50%, 50%);
+  --color-accent-2-900: hsl(38, 50%, 15%);
+
+  /* Content Colors (Semantic) */
+  --color-content-primary: var(--color-neutral-900);
+  --color-content-secondary: var(--color-neutral-700);
+  --color-content-tertiary: var(--color-neutral-500);
+  --color-content-primary-inverse: var(--color-neutral-50);
+  --color-content-secondary-inverse: var(--color-neutral-200);
+  --color-content-tertiary-inverse: var(--color-neutral-400);
+  --color-content-disabled: var(--color-neutral-400);
+  --color-content-brand: var(--color-brand-600);
+  --color-content-link: var(--color-brand-600);
+  --color-content-link-hover: var(--color-brand-700);
+  --color-content-link-pressed: var(--color-brand-800);
+  --color-content-negative: #ef4444;
+
+  /* Background Colors */
+  --color-background-primary: var(--color-neutral-50);
+  --color-background-hover: var(--color-neutral-100);
+  --color-background-pressed: var(--color-neutral-200);
+  --color-background-selected: var(--color-brand-100);
+  --color-background-disabled: var(--color-neutral-100);
+  --color-background-inverse: var(--color-neutral-900);
+  --color-background-brand: var(--color-brand-600);
+  --color-background-brand-hover: var(--color-brand-700);
+  --color-background-brand-pressed: var(--color-brand-800);
+  --color-background-negative: #ef4444;
+  --color-background-negative-hover: #dc2626;
+
+  /* Border Colors */
+  --color-border-primary: var(--color-neutral-300);
+  --color-border-secondary: var(--color-neutral-200);
+  --color-border-tertiary: var(--color-neutral-100);
+  --color-border-disabled: var(--color-neutral-200);
+  --color-border-brand: var(--color-brand-600);
+  --color-border-inverse: var(--color-neutral-50);
+  --color-border-focus: var(--color-brand-600);
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-s: 6px;
+  --spacing-m: 9px;
+  --spacing-l: 14px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 30px;
+  --spacing-3xl: 46px;
+
+  /* Typography - Font Family */
+  --font-family-primary: Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-family-system: "SF Pro Text", system-ui, -apple-system, sans-serif;
+
+  /* Typography - Font Sizes */
+  --font-size-xs: 10px;
+  --font-size-s: 14px;
+  --font-size-m: 18px;
+  --font-size-l: 24px;
+  --font-size-xl: 32px;
+  --font-size-2xl: 43px;
+  --font-size-3xl: 57px;
+  --font-size-4xl: 76px;
+
+  /* Typography - Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Typography - Font Tokens (Prism specific) */
+  --font-text-xs-regular: 400 10px/1.5 var(--font-family-primary);
+  --font-text-xs-medium: 500 10px/1.5 var(--font-family-primary);
+  --font-text-s-regular: 400 14px/1.5 var(--font-family-primary);
+  --font-text-s-medium: 500 14px/1.5 var(--font-family-primary);
+  --font-text-s-semibold: 600 14px/1.5 var(--font-family-primary);
+  --font-text-m-regular: 400 18px/1.5 var(--font-family-primary);
+  --font-text-m-medium: 500 18px/1.5 var(--font-family-primary);
+  --font-text-m-semibold: 600 18px/1.5 var(--font-family-primary);
+  --font-text-l-regular: 400 24px/1.5 var(--font-family-primary);
+  --font-text-l-medium: 500 24px/1.5 var(--font-family-primary);
+  --font-text-l-semibold: 600 24px/1.5 var(--font-family-primary);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 24px;
+
+  /* Shadows */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+
+  /* Motion */
+  --motion-duration: 300ms;
+  --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Support */
+[data-theme="dark"],
+:root.dark {
+  /* Override content colors for dark mode */
+  --color-content-primary: var(--color-neutral-50);
+  --color-content-secondary: var(--color-neutral-200);
+  --color-content-tertiary: var(--color-neutral-400);
+  --color-content-primary-inverse: var(--color-neutral-900);
+  --color-content-secondary-inverse: var(--color-neutral-800);
+  --color-content-tertiary-inverse: var(--color-neutral-600);
+
+  /* Override background colors for dark mode */
+  --color-background-primary: var(--color-neutral-900);
+  --color-background-hover: var(--color-neutral-800);
+  --color-background-pressed: var(--color-neutral-700);
+  --color-background-disabled: var(--color-neutral-800);
+  --color-background-inverse: var(--color-neutral-50);
+  --color-background-selected: var(--color-brand-900);
+
+  /* Override border colors for dark mode */
+  --color-border-primary: var(--color-neutral-700);
+  --color-border-secondary: var(--color-neutral-800);
+  --color-border-tertiary: var(--color-neutral-900);
+  --color-border-disabled: var(--color-neutral-800);
+  --color-border-inverse: var(--color-neutral-900);
+}
